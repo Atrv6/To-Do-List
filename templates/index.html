@@ -15,10 +15,14 @@
     <h2>Task List</h2>
     <ul>
         {% for task in tasks %}
-        <li>{{ task.name }}</li>
+        <li>
+            <input type="checkbox" {% if task.done %}checked{% endif %} disabled>
+            {{ task.name }}
+        </li>
         {% else %}
         <li>No tasks yet!</li>
         {% endfor %}
     </ul>
+
 </body>
 </html>
