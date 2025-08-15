@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mini Task Tracker</title>
+</head>
+<body>
+    <h1>My Tasks</h1>
+
+    <!-- Form to add a new task -->
+    <form action="{{ url_for('add_task') }}" method="POST">
+        <input type="text" name="task_name" placeholder="Enter new task" required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <h2>Task List</h2>
+    <ul>
+        {% for task in tasks %}
+        <li>{{ task.name }}</li>
+        {% else %}
+        <li>No tasks yet!</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
