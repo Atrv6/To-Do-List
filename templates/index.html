@@ -5,32 +5,39 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>My Tasks</h1>
+<div class="container">
+    <h1>My Task Tracker</h1>
 
-    <!-- Form to add a new task -->
+    <!-- Add Task Form -->
     <form action="{{ url_for('add_task') }}" method="POST">
         <input type="text" name="task_name" placeholder="Enter new task" required>
         <button type="submit">Add Task</button>
     </form>
 
-    <h2>Task List</h2>
-    <div>
+    <!-- Filter Links -->
+    <div class="filters">
         <a href="{{ url_for('index', filter='all') }}">All</a> |
         <a href="{{ url_for('index', filter='completed') }}">Completed</a> |
         <a href="{{ url_for('index', filter='pending') }}">Pending</a>
     </div>
+
+    <!-- Task List -->
     <ul>
         {% for task in tasks %}
         <li class="{% if task.done %}done{% endif %}">
             <form action="{{ url_for('toggle_task', task_index=loop.index0) }}" method="POST" style="display:inline;">
-                <input type="checkbox" name="done" {% if task.done %}checked{% endif %}>
+                <input type="checkbox" name="done" {% if task.done %}checked{% endif %} onchange="this.form.submit()">
             </form>
             {{ task.name }}
         </li>
         {% else %}
-            <li>No tasks yet!</li>
+        <li>No tasks yet!</li>
         {% endfor %}
     </ul>
-    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+
+    <!-- Export CSV -->
+    <a href="{{ url_for('export_tasks') }}" class="export-btn">Export to CSV</a>
+</div>
 </body>
+
 </html>
