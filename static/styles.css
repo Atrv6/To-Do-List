@@ -1,37 +1,126 @@
+/* General body styling */
 body {
-    font-family: Arial, sans-serif;
-    margin: 40px;
-}
-
-h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
     color: #333;
+    margin: 0;
+    padding: 0;
 }
 
+/* Container */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* Form styling */
 form input[type="text"] {
-    padding: 5px;
-    font-size: 14px;
+    width: 70%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border 0.3s;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
 }
 
 form button {
-    padding: 5px 10px;
-    font-size: 14px;
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background 0.3s;
 }
 
+form button:hover {
+    background: #0056b3;
+}
+
+/* Filter links */
+.filters {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.filters a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.filters a:hover {
+    color: #0056b3;
+}
+
+/* Task list */
 ul {
     list-style-type: none;
     padding-left: 0;
 }
 
 li {
-    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    transition: background 0.2s;
+    border-radius: 6px;
+    margin-bottom: 8px;
 }
 
+li:hover {
+    background: #f0f8ff;
+}
+
+/* Checkbox styling */
 li input[type="checkbox"] {
-    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    margin-right: 15px;
+    cursor: pointer;
 }
 
+/* Done tasks */
 li.done {
     text-decoration: line-through;
-    color: gray;
+    color: #888;
+}
+
+/* CSV Export button */
+.export-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #28a745;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.export-btn:hover {
+    background: #1e7e34;
 }
